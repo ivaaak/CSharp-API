@@ -19,8 +19,6 @@ namespace BookAPI
 
         public IConfiguration Configuration { get; }
 
-
-        // add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IBookRepository, BookRepository>();
@@ -32,8 +30,6 @@ namespace BookAPI
             });
         }
 
-
-        // configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -44,9 +40,7 @@ namespace BookAPI
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
